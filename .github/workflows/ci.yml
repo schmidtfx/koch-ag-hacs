@@ -12,9 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install system dependencies
-        run: sudo apt-get install -y libturbojpeg0
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -30,8 +27,7 @@ jobs:
             pytest-homeassistant-custom-component \
             ruff \
             mypy \
-            types-requests \
-            turbojpeg
+            types-requests
 
       - name: Ruff (lint)
         run: ruff check .

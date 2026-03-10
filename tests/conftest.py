@@ -4,8 +4,19 @@ from __future__ import annotations
 
 import os
 import sys
+from unittest.mock import MagicMock
 
 import pytest
+
+# ---------------------------------------------------------------------------
+# turbojpeg shim
+# ---------------------------------------------------------------------------
+# HA's camera component imports TurboJPEG at module level.  We don't need the
+# native library for our tests, so always stub the module out before any HA
+# module is imported.
+_tj_stub = MagicMock()
+_tj_stub.TurboJPEG = MagicMock()
+sys.modules["turbojpeg"] = _tj_stub
 
 pytest_plugins = ["pytest_homeassistant_custom_component"]
 
