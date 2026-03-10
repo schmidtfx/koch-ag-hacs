@@ -31,7 +31,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
-    async def handle_open_door(call: ServiceCall) -> None:  # noqa: ARG001
+    async def handle_open_door(call: ServiceCall) -> None:
         """Handle the open_door service call."""
         await coordinator.api.async_open_door()
 

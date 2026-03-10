@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import voluptuous as vol
-
 from homeassistant.config_entries import ConfigFlow, ConfigFlowResult
 from homeassistant.const import CONF_HOST, CONF_PORT
+
 from .const import CONF_VIDEO_PORT, DEFAULT_API_PORT, DEFAULT_VIDEO_PORT, DOMAIN
 
 STEP_USER_DATA_SCHEMA = vol.Schema(
@@ -26,9 +26,7 @@ class KochAgConfigFlow(ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    async def async_step_user(
-        self, user_input: dict | None = None
-    ) -> ConfigFlowResult:
+    async def async_step_user(self, user_input: dict | None = None) -> ConfigFlowResult:
         """Handle the initial step shown when the user adds the integration."""
         errors: dict[str, str] = {}
 
@@ -41,7 +39,7 @@ class KochAgConfigFlow(ConfigFlow, domain=DOMAIN):
             self._abort_if_unique_id_configured()
 
             return self.async_create_entry(
-                title=f"Rene Koch AG SIP Gateway",
+                title="Rene Koch AG SIP Gateway",
                 data=user_input,
             )
 

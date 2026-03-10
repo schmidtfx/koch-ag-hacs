@@ -38,5 +38,7 @@ class KochAgCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         except CannotConnectError as err:
             raise UpdateFailed(f"Gateway unreachable: {err}") from err
         except KochAgApiError as err:
-            raise UpdateFailed(f"Error communicating with Rene Koch AG gateway: {err}") from err
+            raise UpdateFailed(
+                f"Error communicating with Rene Koch AG gateway: {err}"
+            ) from err
         return {}

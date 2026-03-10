@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import asyncio
 import logging
 
 import aiohttp
@@ -38,13 +37,11 @@ class KochAgApi:
         """Verify the gateway is reachable with a lightweight HEAD request."""
         url = f"{self._base_url}/"
         try:
-            async with self._session.head(
-                url, timeout=aiohttp.ClientTimeout(total=10)
-            ):
+            async with self._session.head(url, timeout=aiohttp.ClientTimeout(total=10)):
                 pass
         except aiohttp.ClientConnectionError as err:
             raise CannotConnectError(f"Cannot connect to {url}: {err}") from err
-        except (aiohttp.ClientError, asyncio.TimeoutError) as err:
+        except (TimeoutError, aiohttp.ClientError) as err:
             raise KochAgApiError(f"Request to {url} failed: {err}") from err
 
     async def async_open_door(self) -> None:
@@ -60,7 +57,7 @@ class KochAgApi:
                 body = await response.json(content_type=None)
         except aiohttp.ClientConnectionError as err:
             raise CannotConnectError(f"Cannot connect to {url}: {err}") from err
-        except (aiohttp.ClientError, asyncio.TimeoutError) as err:
+        except (TimeoutError, aiohttp.ClientError) as err:
             raise KochAgApiError(f"Door-open request to {url} failed: {err}") from err
 
         _LOGGER.debug("Door-open response: %s", body)
@@ -68,4 +65,3 @@ class KochAgApi:
         if not data.get("success"):
             detail = data.get("detail", "unknown error")
             raise KochAgApiError(f"Door-open command rejected: {detail}")
-

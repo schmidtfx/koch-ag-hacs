@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import aiohttp
-
 from homeassistant.components.camera import Camera
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_HOST
