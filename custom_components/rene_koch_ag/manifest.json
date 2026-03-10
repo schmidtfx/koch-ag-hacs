@@ -1,11 +1,12 @@
 {
   "domain": "rene_koch_ag",
   "name": "Rene Koch AG SIP Gateway",
-  "version": "0.1.0",
+  "codeowners": ["@schmidtfx"],
   "config_flow": true,
-  "documentation": "https://github.com/schmidtfx/koch-ag-hacs",
-  "iot_class": "local_polling",
-  "requirements": [],
   "dependencies": [],
-  "codeowners": []
+  "documentation": "https://github.com/schmidtfx/koch-ag-hacs",  
+  "iot_class": "local_polling",
+  "issue_tracker": "https://github.com/schmidtfx/koch-ag-hacs/issues",
+  "requirements": [],
+  "version": "0.1.0"
 }
