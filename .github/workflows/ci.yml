@@ -27,7 +27,8 @@ jobs:
             pytest-homeassistant-custom-component \
             ruff \
             mypy \
-            types-requests
+            types-requests \
+            turbojpeg
 
       - name: Ruff (lint)
         run: ruff check .
