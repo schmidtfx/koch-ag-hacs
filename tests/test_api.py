@@ -6,7 +6,6 @@ from unittest.mock import AsyncMock, MagicMock
 
 import aiohttp
 import pytest
-
 from custom_components.rene_koch_ag.api import (
     CannotConnectError,
     KochAgApi,
@@ -14,7 +13,9 @@ from custom_components.rene_koch_ag.api import (
 )
 
 
-def _make_api(session: MagicMock, host: str = "192.168.1.1", port: int = 80) -> KochAgApi:
+def _make_api(
+    session: MagicMock, host: str = "192.168.1.1", port: int = 80
+) -> KochAgApi:
     return KochAgApi(session, host, port)
 
 

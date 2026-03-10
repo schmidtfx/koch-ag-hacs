@@ -5,10 +5,9 @@ from __future__ import annotations
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-from homeassistant.helpers.update_coordinator import UpdateFailed
-
 from custom_components.rene_koch_ag.api import CannotConnectError, KochAgApiError
 from custom_components.rene_koch_ag.coordinator import KochAgCoordinator
+from homeassistant.helpers.update_coordinator import UpdateFailed
 
 
 @pytest.fixture

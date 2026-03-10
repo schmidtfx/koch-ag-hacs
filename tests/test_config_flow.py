@@ -3,15 +3,14 @@
 from __future__ import annotations
 
 import pytest
-from homeassistant import data_entry_flow
-from homeassistant.const import CONF_HOST, CONF_PORT
-
 from custom_components.rene_koch_ag.const import (
     CONF_VIDEO_PORT,
     DEFAULT_API_PORT,
     DEFAULT_VIDEO_PORT,
     DOMAIN,
 )
+from homeassistant import data_entry_flow
+from homeassistant.const import CONF_HOST, CONF_PORT
 
 pytestmark = pytest.mark.usefixtures("enable_custom_integrations")
 

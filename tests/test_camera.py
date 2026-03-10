@@ -2,9 +2,7 @@
 
 from __future__ import annotations
 
-from unittest.mock import AsyncMock, MagicMock
-
-import pytest
+from unittest.mock import MagicMock
 
 from custom_components.rene_koch_ag.camera import _async_extract_jpeg
 
@@ -16,7 +14,7 @@ def _make_response(chunks: list[bytes]) -> MagicMock:
     """Build a mock aiohttp.ClientResponse whose content streams the given chunks."""
     response = MagicMock()
 
-    async def _iter_chunked(_size: int):  # noqa: ANN001
+    async def _iter_chunked(_size: int):
         for chunk in chunks:
             yield chunk
 
