@@ -1,0 +1,40 @@
+{
+  "services": {
+    "open_door": {
+      "name": "Open door",
+      "description": "Sends the door-open command to the Rene Koch AG SIP Gateway."
+    }
+  },
+  "config": {
+    "step": {
+      "user": {
+        "title": "Rene Koch AG SIP Gateway",
+        "description": "Enter the IP address (or hostname) and port of your Rene Koch AG SIP Gateway.",
+        "data": {
+          "host": "Host / IP address",
+          "port": "API port",
+          "video_port": "Video stream port"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the gateway. Check the host address and port.",
+      "unknown": "An unexpected error occurred. See the Home Assistant log for details."
+    },
+    "abort": {
+      "already_configured": "This gateway is already configured."
+    }
+  },
+  "entity": {
+    "button": {
+      "open_door": {
+        "name": "Open door"
+      }
+    },
+    "camera": {
+      "video": {
+        "name": "Video"
+      }
+    }
+  }
+}
